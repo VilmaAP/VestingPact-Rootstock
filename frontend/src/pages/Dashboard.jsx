@@ -168,6 +168,14 @@ export default function Dashboard({ wallet }) {
     );
   }
 
+  const formatRBTC = (val) => {
+    if (!val) return "0";
+    const num = parseFloat(ethers.utils.formatEther(val));
+    if (num === 0) return "0";
+    if (num < 0.0001) return num.toPrecision(2);
+    return num.toFixed(4);
+  };
+
   const isFounderA = address?.toLowerCase() === pact.founderA.toLowerCase();
   const isFounderB = address?.toLowerCase() === pact.founderB.toLowerCase();
   const isFounder = isFounderA || isFounderB;
@@ -188,6 +196,21 @@ export default function Dashboard({ wallet }) {
 
       <div className={`status-badge ${pact.isActive ? "active" : "inactive"}`}>
         {pact.isActive ? "Activo" : "Inactivo"}
+      </div>
+
+      <div className="pact-summary">
+        <div className="pact-summary-item">
+          <span className="pact-summary-label">Depósito Fundador A</span>
+          <span className="pact-summary-value">{formatRBTC(pact.depositA)} RBTC</span>
+        </div>
+        <div className="pact-summary-item">
+          <span className="pact-summary-label">Depósito Fundador B</span>
+          <span className="pact-summary-value">{formatRBTC(pact.depositB)} RBTC</span>
+        </div>
+        <div className="pact-summary-item total">
+          <span className="pact-summary-label">Total del Pacto</span>
+          <span className="pact-summary-value">{formatRBTC(pact.depositA.add(pact.depositB))} RBTC</span>
+        </div>
       </div>
 
       {pact.isActive && (
@@ -243,8 +266,8 @@ export default function Dashboard({ wallet }) {
             </button>
           )}
 
-          {/* Claim — cualquier founder cuando activo */}
-          {isFounder && pact.isActive && (
+          {/* Claim — cualquier founder cuando activo y cliff pasado */}
+          {isFounder && pact.isActive && Date.now() / 1000 > pact.cliffEnd && (
             <button
               className="btn btn-primary"
               onClick={handleClaim}
@@ -283,12 +306,12 @@ export default function Dashboard({ wallet }) {
       )}
 
       <a
-        href="https://app.sovryn.app/fastbtc"
+        href="https://alpha.sovryn.app/fast-btc/withdraw"
         target="_blank"
         rel="noopener noreferrer"
         className="fastbtc-link"
       >
-        ¿No tenés RBTC? Obtené con FastBTC
+        ¿No tenés RBTC? Obtené con FastBTC (mainnet)
       </a>
     </div>
   );

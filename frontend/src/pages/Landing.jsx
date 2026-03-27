@@ -134,7 +134,7 @@ export default function Landing() {
       <footer className="landing-footer">
         <div className="footer-links">
           <a href="https://explorer.testnet.rootstock.io" target="_blank" rel="noopener noreferrer">Explorer</a>
-          <a href="https://app.sovryn.app/fastbtc" target="_blank" rel="noopener noreferrer">Obtener RBTC</a>
+          <a href="https://alpha.sovryn.app/fast-btc/withdraw" target="_blank" rel="noopener noreferrer">Obtener RBTC</a>
           <a href="https://rootstock.io" target="_blank" rel="noopener noreferrer">Rootstock</a>
           <a href="https://github.com/VilmaAP/VestingPact-Rootstock" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>

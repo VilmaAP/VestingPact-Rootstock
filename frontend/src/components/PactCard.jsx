@@ -7,8 +7,11 @@ function truncateAddress(addr) {
 
 export default function PactCard({ label, address, deposit, vested, claimed }) {
   const formatRBTC = (val) => {
-    if (!val) return "0.0000";
-    return parseFloat(ethers.utils.formatEther(val)).toFixed(4);
+    if (!val) return "0";
+    const num = parseFloat(ethers.utils.formatEther(val));
+    if (num === 0) return "0";
+    if (num < 0.0001) return num.toPrecision(2);
+    return num.toFixed(4);
   };
 
   return (

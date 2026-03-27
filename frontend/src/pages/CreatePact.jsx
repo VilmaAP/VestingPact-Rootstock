@@ -158,12 +158,12 @@ export default function CreatePact({ wallet }) {
         </div>
 
         <a
-          href="https://app.sovryn.app/fastbtc"
+          href="https://alpha.sovryn.app/fast-btc/withdraw"
           target="_blank"
           rel="noopener noreferrer"
           className="fastbtc-link"
         >
-          ¿No tenés RBTC? Obtené con FastBTC
+          ¿No tenés RBTC? Obtené con FastBTC (mainnet)
         </a>
       </div>
     );
