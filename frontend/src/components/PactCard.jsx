@@ -10,7 +10,7 @@ export default function PactCard({ label, address, deposit, vested, claimed }) {
     if (!val) return "0";
     const num = parseFloat(ethers.utils.formatEther(val));
     if (num === 0) return "0";
-    if (num < 0.0001) return num.toPrecision(2);
+    if (num < 0.0001) return num.toFixed(6);
     return num.toFixed(4);
   };
 
