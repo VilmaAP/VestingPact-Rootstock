@@ -23,3 +23,9 @@ Thumbs.db
 # Coverage
 coverage/
 coverage.json
+
+# Docs internos
+VendimiaTech Hackathon 2026 Guia Completa.md
+VestingPact_Proyecto.md
+PRUEBAS_MANUALES.md
+tasks/
