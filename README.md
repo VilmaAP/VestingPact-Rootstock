@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://i.imgur.com/MFV7jyO.png" alt="VestingPact Logo" width="280" />
+  <img src="https://i.imgur.com/MFV7jyO.png" alt="VestingPact Logo" width="180" />
 </p>
 
 <h1 align="center">VestingPact</h1>
