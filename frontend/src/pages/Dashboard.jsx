@@ -287,7 +287,7 @@ export default function Dashboard({ wallet }) {
             </button>
           )}
 
-          {isFounder && pact.isActive && (
+          {isFounder && pact.isActive && (pact.vestedA.lt(pact.depositA) || pact.vestedB.lt(pact.depositB)) && (
             <button
               className="btn btn-danger"
               onClick={handleDissolve}
