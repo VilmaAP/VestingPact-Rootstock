@@ -255,8 +255,8 @@ export default function Dashboard({ wallet }) {
 
       {isConnected && (
         <div className="dashboard-actions">
-          {/* Join — solo founderB cuando pacto no activo */}
-          {isFounderB && !pact.isActive && (
+          {/* Join — solo founderB cuando pacto no activo y no ha depositado aún */}
+          {isFounderB && !pact.isActive && pact.depositB.isZero() && (
             <button
               className="btn btn-primary"
               onClick={handleJoin}
